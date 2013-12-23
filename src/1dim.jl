@@ -25,14 +25,21 @@ type CA
     end
 end
 
-#Evaluate next generation
+#Parse rule numbering according to Wolfram
+function rule(n::Int)
+#    reverse(digits(n, 2, 8))
+    digits(n, 2, 8)
+
+end
+
+#Evaluate the next generation
 function next_step(ca::CA)
     old = ca.cells[:, ca.step]
     w = length(old)
     arr = zeros(w)
     for i = 2:w-1
         str = string(old[i-1], old[i], old[i+1])
-        ind = parseint(str,2)
+        ind = parseint(str, 2)
         arr[i] = ca.ruleset[ind+1]
     end
     ca.cells = hcat(ca.cells, arr)
@@ -44,5 +51,6 @@ function generate(ca::CA, steps)
     while ca.step <= steps
         next_step(ca)
     end
+    ca
 end
 

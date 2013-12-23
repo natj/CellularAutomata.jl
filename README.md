@@ -1,14 +1,51 @@
-CellularAutomata
+Cellular Automata
 ===================
 
 One & two dimensional Cellular Automata models.
 
-Make the initial CA model (rule 90) and generate 100 generations
+Make the initial CA model (rule 90) that is 70 blocks in width and generate 32 generations
 ```julia
 using CellularAutomata
 
-ca90 = CA([0,1,0,1,1,0,1,0],10)
-generate(ca90, 100)
+ca90 = CA(rule(90), 70)
+generate(ca90, 32)
+```
+
+to obtain
+```julia
+	                                   #                                    
+	                                  # #                                   
+	                                 #   #                                  
+	                                # # # #                                 
+	                               #       #                                
+	                              # #     # #                               
+	                             #   #   #   #                              
+	                            # # # # # # # #                             
+	                           #               #                            
+	                          # #             # #                           
+	                         #   #           #   #                          
+	                        # # # #         # # # #                         
+	                       #       #       #       #                        
+	                      # #     # #     # #     # #                       
+	                     #   #   #   #   #   #   #   #                      
+	                    # # # # # # # # # # # # # # # #                     
+	                   #                               #                    
+	                  # #                             # #                   
+	                 #   #                           #   #                  
+	                # # # #                         # # # #                 
+	               #       #                       #       #                
+	              # #     # #                     # #     # #               
+	             #   #   #   #                   #   #   #   #              
+	            # # # # # # # #                 # # # # # # # #             
+	           #               #               #               #            
+	          # #             # #             # #             # #           
+	         #   #           #   #           #   #           #   #          
+	        # # # #         # # # #         # # # #         # # # #         
+	       #       #       #       #       #       #       #       #        
+	      # #     # #     # #     # #     # #     # #     # #     # #       
+	     #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #      
+	    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #     
+
 ```
 
 
