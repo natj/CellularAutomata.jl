@@ -42,5 +42,7 @@ end
 
 using CellularAutomata
 
-#ca = CA(rule(90), 70)
-#generate(ca, 50)
+tic()
+ca = CA(rule(90), 1000)
+generate(ca, 1000)
+toc()
