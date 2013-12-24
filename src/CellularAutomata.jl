@@ -14,25 +14,24 @@ function show(io::IO, ca::CA)
     io2 = IOBuffer()
 
     arr = ca.cells
-    w, h = size(arr)
+    h, w = size(arr)
 
     print(io2, "$(w)x$(h) Cellular Automata")
     
     #TODO: print rule
 
-    if ca.step > 2
-        for i = 1:h
-            print(io2,"\t")
-            for j = 1:w
-                if arr[j,i] == 0
-                    print(io2," ")
-                elseif arr[j,i] == 1
-                    print(io2,"#")
-                end
+    for i = 1:h
+        print(io2,"\t")
+        for j = 1:w
+            if arr[i,j] == 0
+                print(io2," ")
+            elseif arr[i,j] == 1
+                print(io2,"#")
             end
-            print(io2,"\n")
         end
-    end    
+        print(io2,"\n")
+    end
+
     print(io, bytestring(io2))
 end
 
@@ -42,5 +41,10 @@ end
 
 using CellularAutomata
 
-#ca = CA(rule(90), 70)
-#generate(ca, 50)
+
+init=int(zeros(1000))
+init[int(1000/2)]=1
+
+tic()
+ca = CA(90, init, 1000) 
+toc()

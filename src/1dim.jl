@@ -1,6 +1,6 @@
 #1-dim CAs
 
-#Elementary CA
+#Wolfram elementary CA
 type CA
 
     #user given values
@@ -8,49 +8,39 @@ type CA
 
     #internal variables
     cells::Array{Int,2}
-    step::Int
 
-    function CA(ruleset::Array{Int,1},
-                w::Int)
-        
-        w=w+2
-        startup=int(zeros(w))
-        startup[int(w/2)] = 1
-        cells = int(zeros(w))
-        cells = hcat(cells, startup)
+    function CA(rulen::Int, init::Array{Int,1}, gen::Int)
+        ruleset = rule(rulen)
 
-        step = 2
-        new(ruleset, cells, step)
-        
+        w = length(init)
+        cells = Array(Int, gen, w)
+        cells[1,:] = init[:]'
+
+        for i = 2:gen
+            #Cyclic boundary conditions 
+            ind = parseint(string(cells[i-1,w], cells[i-1,1], cells[i-1,2]), 2)
+            cells[i,1] = ruleset[ind+1]
+            for j = 2:w-1
+                str = string(cells[i-1,j-1], cells[i-1,j], cells[i-1,j+1])
+                ind = parseint(str, 2)
+                cells[i,j] = ruleset[ind+1]
+            end
+            ind = parseint(string(cells[i-1,w-1], cells[i-1,w], cells[i-1,1]), 2)
+            cells[i,w] = ruleset[ind+1]
+        end
+
+        new(ruleset, cells)
     end
+
+#    function CA(rulen::Int, init::Array{Int,1}, bkg::Array{Int,1}, gen::Int)
+#
+#    end
+
 end
 
-#Parse rule numbering according to Wolfram
+#Parse rule numbering according to Wolfram code
 function rule(n::Int)
-#    reverse(digits(n, 2, 8))
     digits(n, 2, 8)
-
 end
 
-#Evaluate the next generation
-function next_step(ca::CA)
-    old = ca.cells[:, ca.step]
-    w = length(old)
-    arr = zeros(w)
-    for i = 2:w-1
-        str = string(old[i-1], old[i], old[i+1])
-        ind = parseint(str, 2)
-        arr[i] = ca.ruleset[ind+1]
-    end
-    ca.cells = hcat(ca.cells, arr)
-    ca.step +=1
-end
-
-#Generate the CA
-function generate(ca::CA, steps)
-    while ca.step <= steps
-        next_step(ca)
-    end
-    ca
-end
 
