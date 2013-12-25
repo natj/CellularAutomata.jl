@@ -7,33 +7,32 @@ One & two dimensional Cellular Automata models.
 Elementary CA
 -------------
 
-Make the initial CA model (rule 90) that is 70 blocks in width and generate 16 step
+Generate 15 generations of elementary cellular automaton of rule 90
 ```julia
 using CellularAutomata
 
-ca90 = CA(rule(90), 70)
-generate(ca90, 16)
+ca90 = CellularAutomaton(90, 15)
 ```
 
 to obtain
 ```julia
-72x17 Cellular Automata	
-	                                   #                                    
-	                                  # #                                   
-	                                 #   #                                  
-	                                # # # #                                 
-	                               #       #                                
-	                              # #     # #                               
-	                             #   #   #   #                              
-	                            # # # # # # # #                             
-	                           #               #                            
-	                          # #             # #                           
-	                         #   #           #   #                          
-	                        # # # #         # # # #                         
-	                       #       #       #       #                        
-	                      # #     # #     # #     # #                       
-	                     #   #   #   #   #   #   #   #                      
-	                    # # # # # # # # # # # # # # # #                     
+30x15 Cellular Automaton	
+                                #                                    
+                               # #                                   
+                              #   #                                  
+                             # # # #                                 
+                            #       #                                
+                           # #     # #                               
+                          #   #   #   #                              
+                         # # # # # # # #                             
+                        #               #                            
+                       # #             # #                           
+                      #   #           #   #                          
+                     # # # #         # # # #                         
+                    #       #       #       #                        
+                   # #     # #     # #     # #                       
+                  #   #   #   #   #   #   #   #                      
+                 # # # # # # # # # # # # # # # #                     
 ```
 
 

@@ -4,20 +4,21 @@ import Base.show
 
 include("1dim.jl")
 
-export CA,
+export CellularAutomaton,
        rule,
        generate,
        show
 
 #Print CA to screen
-function show(io::IO, ca::CA) 
+function show(io::IO, ca::CellularAutomaton) 
     io2 = IOBuffer()
 
     arr = ca.cells
     h, w = size(arr)
 
-    print(io2, "$(w)x$(h) Cellular Automata")
-    
+    print(io2, "$(w)x$(h) Cellular Automaton")
+    print(io2, "\n")
+
     #TODO: print rule
 
     for i = 1:h
@@ -42,9 +43,9 @@ end
 using CellularAutomata
 
 
-init=int(zeros(1000))
-init[int(1000/2)]=1
+#init=int(zeros(1000))
+#init[int(1000/2)]=1
 
 tic()
-ca = CA(90, init, 1000) 
+ca = CellularAutomaton(90, 1000)
 toc()

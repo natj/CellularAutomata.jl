@@ -1,7 +1,7 @@
 #1-dim CAs
 
 #Wolfram elementary CA
-type CA
+type CellularAutomaton
 
     #user given values
     ruleset::Array{Int,1}
@@ -9,7 +9,7 @@ type CA
     #internal variables
     cells::Array{Int,2}
 
-    function CA(rulen::Int, init::Array{Int,1}, gen::Int)
+    function CellularAutomaton(rulen::Int, init::Array{Int,1}, gen::Int)
         ruleset = rule(rulen)
 
         w = length(init)
@@ -32,15 +32,16 @@ type CA
         new(ruleset, cells)
     end
 
-#    function CA(rulen::Int, init::Array{Int,1}, bkg::Array{Int,1}, gen::Int)
-#
-#    end
-
+    function CellularAutomaton(rulen::Int, gen::Int)
+        init = int(zeros(2*gen))
+        init[gen] = 1
+        
+        CellularAutomaton(rulen, init, gen)
+    end
 end
 
 #Parse rule numbering according to Wolfram code
-function rule(n::Int)
-    digits(n, 2, 8)
-end
+rule(n) = digits(n, 2, 8)
+
 
 
