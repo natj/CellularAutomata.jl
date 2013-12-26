@@ -18,14 +18,13 @@ type CellularAutomaton
 
         for i = 2:gen
             #Cyclic boundary conditions 
-            ind = parseint(string(cells[i-1,w], cells[i-1,1], cells[i-1,2]), 2)
+            ind = 4cells[i-1,w]+2cells[i-1,1]+cells[i-1,2]
             cells[i,1] = ruleset[ind+1]
             for j = 2:w-1
-                str = string(cells[i-1,j-1], cells[i-1,j], cells[i-1,j+1])
-                ind = parseint(str, 2)
+                ind = 4cells[i-1,j-1]+2cells[i-1,j]+cells[i-1,j+1]
                 cells[i,j] = ruleset[ind+1]
             end
-            ind = parseint(string(cells[i-1,w-1], cells[i-1,w], cells[i-1,1]), 2)
+            ind = 4cells[i-1,w-1]+2cells[i-1,w]+cells[i-1,1]
             cells[i,w] = ruleset[ind+1]
         end
 

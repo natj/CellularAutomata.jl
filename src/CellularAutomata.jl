@@ -41,11 +41,15 @@ end
 end
 
 using CellularAutomata
-
+#using Profile
 
 #init=int(zeros(1000))
 #init[int(1000/2)]=1
+ca = CellularAutomaton(90, 10)
 
 tic()
 ca = CellularAutomaton(90, 1000)
 toc()
+
+#@profile CellularAutomaton(90, 1000)
+#Profile.print()
