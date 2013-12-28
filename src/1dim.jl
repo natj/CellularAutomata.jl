@@ -1,13 +1,13 @@
 #1-dim CAs
 
-#Elementary CA with r-nearest neighbor and k states
+#Elementary & totalistic CA with r-nearest neighbor and k states
 type CellularAutomaton
 
     #user given values
     N::Int #code
     ruleset::Array{Int8,1} #set of rules
     k::Int #number of states
-    r::Int # r-nearest neighbor
+    r::Int #r-nearest neighbor
 
     #internal variables
     cells::Array{Int8,2}
@@ -19,7 +19,13 @@ type CellularAutomaton
         cells = Array(Int8, gen, w)
         cells[1,:] = int8(init[:])'
 
-        mp = reverse(Int8[k^i for i = 0:k])
+        if k == 2
+            #Elementary CA
+            mp = reverse(Int8[k^i for i = 0:k])
+        else
+            #Totalistic CA
+            mp = int8(ones(k+1))
+        end
 
         for i = 2:gen
             for j = 1:w
@@ -44,16 +50,25 @@ type CellularAutomaton
         new(N, ruleset, k, r, cells)
     end
 
+    #Quick setup for one seed cell in the center
     function CellularAutomaton(N::Int, gen::Int; kvs...)
         init = int(zeros(2*gen))
         init[gen] = 1
         
-        CellularAutomaton(N, init, gen)
+        CellularAutomaton(N, init, gen; kvs...)
     end
 end
 
 #Parse rule numbering according to Wolfram code
-rule(n::Int, k=2, r=1) = digits(n, k, k^(2r+1))
-
-
+function rule(n::Int, k=2, r=1)
+    if k < 2
+        error("number of states (k) must be larger than 1; you gave $k")
+    elseif k == 2
+        #Elementary CA
+        return digits(n, k, k^(2r+1))
+    else
+        #Totalistic CA
+        return digits(n, k, (2r+1)k-2)
+    end
+end
 
