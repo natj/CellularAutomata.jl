@@ -8,14 +8,10 @@ Elementary CA
 -------------
 
 Generate 15 generations of elementary cellular automaton of rule 90
-```julia
-using CellularAutomata
+```jlcon
+julia> using CellularAutomata
 
-ca90 = CellularAutomaton(90, 15)
-```
-
-to obtain
-```julia
+julia> ca90 = CellularAutomaton(90, 15)
 30x15 Cellular Automaton	
                                 #                                    
                                # #                                   
@@ -35,4 +31,27 @@ to obtain
                  # # # # # # # # # # # # # # # #                     
 ```
 
+Totalistic CA
+-------------
+
+If the number of states (k) is changed to larger than 2, totalistic CA is computed
+```jlcon
+julia> ca=CellularAutomaton(993, 15, k=3)
+30x15 Cellular Automaton
+	                        X                         
+	                       XXX                        
+	                      X# #X                       
+	                     X     X                      
+	                    XXX   XXX                     
+	                   X# #X X# #X                    
+	                  X     #     X                   
+	                 XXX   ###   XXX                  
+	                X# #X # X # X# #X                 
+	               X      # X #      X                
+	              XXX    ## X ##    XXX               
+	             X# #X  #   X   #  X# #X              
+	            X     X### XXX ###X     X             
+	           XXX   X XX  # #  XX X   XXX            
+	          X# #X XX###X## ##X###XX X# #X           
+```
 
