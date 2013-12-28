@@ -25,8 +25,12 @@ function show(io::IO, ca::CellularAutomaton)
         for j = 1:w
             if arr[i,j] == 0
                 print(io2," ")
-            elseif arr[i,j] == 1
+            elseif ca.k == 2 && arr[i,j] == 1
                 print(io2,"#")
+            elseif ca.k == 3 && arr[i,j] == 1
+                print(io2,"X")
+            elseif arr[i,j] == 2
+                print(io2, "#")
             end
         end
         print(io2,"\n")
