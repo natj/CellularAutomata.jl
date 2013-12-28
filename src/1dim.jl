@@ -4,17 +4,20 @@
 type CellularAutomaton
 
     #user given values
-    ruleset::Array{Int8,1}
+    N::Int #code
+    ruleset::Array{Int8,1} #set of rules
+    k::Int #number of states
+    r::Int # r-nearest neighbor
 
     #internal variables
     cells::Array{Int8,2}
 
-    function CellularAutomaton(rulen::Int, init::Array{Int,1}, gen::Int; k=2, r=1)
-        ruleset = rule(rulen, k, r)
+    function CellularAutomaton(N::Int, init::Array{Int,1}, gen::Int; k::Int=2, r::Int=1)
+        ruleset = rule(N, k, r)
 
         w = length(init)
         cells = Array(Int8, gen, w)
-        cells[1,:] = init[:]'
+        cells[1,:] = int8(init[:])'
 
         mp = reverse(Int8[k^i for i = 0:k])
 
@@ -38,14 +41,14 @@ type CellularAutomaton
             end
         end
 
-        new(ruleset, cells)
+        new(N, ruleset, k, r, cells)
     end
 
-    function CellularAutomaton(rulen::Int, gen::Int; kvs...)
+    function CellularAutomaton(N::Int, gen::Int; kvs...)
         init = int(zeros(2*gen))
         init[gen] = 1
         
-        CellularAutomaton(rulen, init, gen)
+        CellularAutomaton(N, init, gen)
     end
 end
 
