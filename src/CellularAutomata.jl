@@ -6,7 +6,6 @@ include("1dim.jl")
 
 export CellularAutomaton,
        rule,
-       generate,
        show
 
 #Print CA to screen
@@ -48,7 +47,7 @@ using CellularAutomata
 ca = CellularAutomaton(90, 10)
 
 tic()
-ca = CellularAutomaton(90, 1000)
+ca = CellularAutomaton(90, 15)
 toc()
 
 #@profile CellularAutomaton(90, 1000)
