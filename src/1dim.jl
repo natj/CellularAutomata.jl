@@ -59,7 +59,7 @@ type CellularAutomaton
     end
 end
 
-#Parse rule numbering according to Wolfram code
+#Parse rule numbering according to the Wolfram code
 function rule(n::Int, k=2, r=1)
     if k < 2
         error("number of states (k) must be larger than 1; you gave $k")
