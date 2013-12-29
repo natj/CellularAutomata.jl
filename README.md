@@ -70,9 +70,127 @@ Two dimensional cellular automaton (like Conway's Game of Life) can be created b
 ```julia
 ca = CA2d(B, S, init, gen)
 ```
-where B and S are vectors that have the numbers of neighboring cells that define when cell is born or survives, init (matrix) is the initial starting condition and gen is the number of generations the CA is being computed.
+where `B` and `S` are vectors that have the numbers of neighboring cells that define when cell is born or survives, `init` (matrix) is the initial starting condition and `gen` is the number of generations the CA is to be computed.
 
-Game of life is then run for 5 generations by typing
+Game of life is then run for 9 generations for a turbine pattern by typing
 ```julia
-ca = CA2d([3], [2, 3], init, 5)
+ca = CA2d([3], [2, 3], init, 9)
 ```
+
+1st step
+	   ###### ##        
+	   ###### ##        
+	          ##        
+	   ##     ##        
+	   ##     ##        
+	   ##     ##        
+	   ##               
+	   ## ######        
+	   ## ######        
+	                    
+2nd	                    
+	    ####            
+	   #    # ##        
+	   #    #   #       
+	      ##    #       
+	   ##    #  #       
+	  #  #   #  #       
+	  #  #    ##        
+	  #    ##           
+	  #   #    #        
+	   ## #    #        
+	       ####         
+	                    
+3rd	                    
+	     ##             
+	    ####            
+	   # ## ## #        
+	        ##  #       
+	   ##  ##  ###      
+	   #### #  ###      
+	  #  #   #  #       
+	 ###  # ####        
+	 ###  ##  ##        
+	  #  ##             
+	   # ## ## #        
+	       ####         
+	        ##          
+	                    
+4th
+	    #  #            
+	        #           
+	         ##         
+	   # ##      #      
+	   #  #   #         
+	  #   # ###         
+	 #           #      
+	    ### #   #       
+	    #   #  #        
+	 #      ## #        
+	    ##              
+	      #             
+	       #  #         
+	                    
+5th
+	        ##          
+	         #          
+	    ###  ##         
+	  ### #   #         
+	  #    # ##         
+	      # #           
+	    ## #    #       
+	    #   # ###       
+	    ##  ###         
+	     #              
+	     ##             
+
+6th
+	        ##          
+	     #              
+	    # #  ##         
+	  # # ###  #        
+	  #  ######         
+	     ## ##          
+	    ######  #       
+	   #  ### # #       
+	    ##  # #         
+	         #          
+	     ##             
+	                    
+7th	                    
+	     #  # #         
+	   ## # ###         
+	    #      #        
+	   ##     #         
+	                    
+	    #     ##        
+	   #      #         
+	    ### # ##        
+	    # #  #          
+	                    
+8th	                    
+	    ## ## #         
+	   ##  ## ##        
+	           #        
+	   ##               
+	   ##     ##        
+	          ##        
+	   #                
+	   ## ##  ##        
+	    # ## ##         
+	                    
+9th	                    
+	   ###### ##        
+	   ###### ##        
+	          ##        
+	   ##     ##        
+	   ##     ##        
+	   ##     ##        
+	   ##               
+	   ## ######        
+	   ## ######        
+	            	                    
+	                    
+	                    
+	                    
+	                    
