@@ -1,7 +1,10 @@
 Cellular Automata
 ===================
 
-One & two dimensional cellular automata models.
+> A cellular automaton is a collection of "colored" cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells. 
+> The rules are then applied iteratively for as many time steps as desired.
+
+[mathworld.wolfram.com/CellularAutomaton](http://mathworld.wolfram.com/CellularAutomaton.html)
 
 
 Elementary CA
@@ -40,7 +43,7 @@ ca90 = CellularAutomaton(90, 15)
 Totalistic CA
 -------------
 
-For a more complex cellular automaton you can change the number of states `k` the cell can be and the radius `r` of neighbors that can influence the computations.
+For a more complex cellular automaton you can change the number of states `k` the cell can be and the radius `r` of neighbors that can influence the states.
 If `k` is changed to be larger than 2, a totalistic CA is computed where only the average value of all neighbors count.
 This can be done like this
 ```julia
@@ -72,7 +75,7 @@ ca = CA2d(B, S, init, gen)
 ```
 where `B` and `S` are vectors that have the numbers of neighboring cells that define when cell is born or survives, `init` (matrix) is the initial starting condition and `gen` is the number of generations the CA is to be computed.
 
-Game of life is then run for 9 generations for a turbine pattern by typing
+Game of life is then run for 9 generations for e.g. a turbine pattern by typing
 ```julia
 ca = CA2d([3], [2, 3], init, 9)
 ```
