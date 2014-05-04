@@ -20,7 +20,7 @@ To generate 15 generations of elementary cellular automaton of rule 90 use
 ```julia
 using CellularAutomata
 
-ca90 = CellularAutomaton(90, 15)
+ca90 = CellularAutomaton(90, 16)
 ```
                                 #                                    
                                # #                                   
