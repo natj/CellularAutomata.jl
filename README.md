@@ -215,9 +215,9 @@ ca = CA2d([3], [2, 3], init, 9)
 Running Tests
 -----------------
 
-To run tests, execute the following from the root folder of the repository:
+To run tests, execute the following command from the root folder of the repository:
 
-'''
+```julia
 julia tests/run_tests.jl
-'''
+```
 
