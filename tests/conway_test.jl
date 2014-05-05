@@ -15,7 +15,7 @@ function blinker_test()
   init[6, 4] = 1
   init[6, 5] = 1
   init[6, 6] = 1
-..
+
   init[7, 5] = 1
   init[7, 6] = 1
   init[7, 7] = 1
