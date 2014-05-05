@@ -20,7 +20,7 @@ To generate 15 generations of elementary cellular automaton of rule 90 use
 ```julia
 using CellularAutomata
 
-ca90 = CellularAutomaton(90, 15)
+ca90 = CellularAutomaton(90, 16)
 ```
                                 #                                    
                                # #                                   
@@ -212,5 +212,12 @@ ca = CA2d([3], [2, 3], init, 9)
 	            	                    
 	                    
 	                    
-	                    
-	                    
+Running Tests
+-----------------
+
+To run tests, execute the following from the root folder of the repository:
+
+'''
+julia tests/run_tests.jl
+'''
+
