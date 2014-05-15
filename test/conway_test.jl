@@ -1,5 +1,3 @@
-require("src/CellularAutomata.jl")
-
 module ConwayTest
 
 using Base.Test
