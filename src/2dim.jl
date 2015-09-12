@@ -20,7 +20,7 @@ type CA2d
 
         h, w = size(init)
         cells = Array(Int8, h, w, gen)
-        cells[:, :, 1] = int8(init[:, :])
+        cells[:, :, 1] = round(Int8, init[:, :])
 
         for g = 2:gen
             for i = 1:h, j = 1:w
