@@ -11,7 +11,7 @@ export CellularAutomaton,
        show
 
 #Print CA to screen
-function show(io::IO, ca::CellularAutomaton) 
+function show(io::IO, ca::CellularAutomaton)
     io2 = IOBuffer()
 
     arr = ca.cells
@@ -38,11 +38,11 @@ function show(io::IO, ca::CellularAutomaton)
         print(io2,"\n")
     end
 
-    print(io, bytestring(io2))
+    print(io, String(io2))
 end
 
 #Print CA to screen
-function show(io::IO, ca::CA2d) 
+function show(io::IO, ca::CA2d)
     io2 = IOBuffer()
 
     arr = ca.cells
@@ -68,7 +68,7 @@ function show(io::IO, ca::CA2d)
         print(io2,"\n\n")
     end
 
-    print(io, bytestring(io2))
+    print(io, String(io2))
 end
 
 

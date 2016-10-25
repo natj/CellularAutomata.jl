@@ -11,21 +11,21 @@ type CA2d
     #Internal values
     cells::Array{Int8, 3}
 
-    function CA2d(B::Array{Int,1}, 
-                  S::Array{Int,1}, 
-                  init::Array{Int,2}, 
-                  gen::Int, 
-                  k::Int=2, 
+    function CA2d(B::Array{Int,1},
+                  S::Array{Int,1},
+                  init::Array{Int,2},
+                  gen::Int,
+                  k::Int=2,
                   r::Int=1)
 
         h, w = size(init)
         cells = Array(Int8, h, w, gen)
-        cells[:, :, 1] = int8(init[:, :])
+        cells[:, :, 1] = Array{Int8}(init[:, :])
 
         for g = 2:gen
             for i = 1:h, j = 1:w
                 cc = -cells[i, j, g-1]
-                for p = (i-r):(i+r), q = (j-r):(j+r) 
+                for p = (i-r):(i+r), q = (j-r):(j+r)
 
                     #Cyclic boundary conditions
                     if p < 1; p = h-p; end
@@ -52,5 +52,3 @@ function eval_rule(cc, olds, B, S, k=2)
 
     return 0
 end
-
-

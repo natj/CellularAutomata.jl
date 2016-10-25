@@ -17,14 +17,14 @@ type CellularAutomaton
 
         w = length(init)
         cells = Array(Int8, gen, w)
-        cells[1,:] = int8(init[:])'
+        cells[1,:] = Array{Int8}(init[:])'
 
         if k == 2
             #Elementary CA
             mp = reverse(Int8[k^i for i = 0:k])
         else
             #Totalistic CA
-            mp = int8(ones(k+1))
+            mp = Array{Int8}(ones(k+1))
         end
 
         for i = 2:gen
@@ -40,7 +40,7 @@ type CellularAutomaton
                         q = q-w
                     end
 
-                    ind += mp[s]*cells[i-1, q] 
+                    ind += mp[s]*cells[i-1, q]
                     s += 1
                 end
                 cells[i,j] = ruleset[ind+1]
@@ -52,9 +52,9 @@ type CellularAutomaton
 
     #Quick setup for one seed cell in the center
     function CellularAutomaton(N::Int, gen::Int; kvs...)
-        init = int(zeros(2*gen))
+        init = Array{Int}(zeros(2*gen))
         init[gen] = 1
-        
+
         CellularAutomaton(N, init, gen; kvs...)
     end
 end
@@ -71,4 +71,3 @@ function rule(n::Int, k=2, r=1)
         return digits(n, k, (2r+1)k-2)
     end
 end
-

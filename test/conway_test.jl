@@ -7,7 +7,7 @@ export blinker_test, turbine_test
 
 # Function to test Conway's blinker oscillator and toad oscillator
 function blinker_test()
-  init = int(zeros(10,10))
+  init = Array{Int}(zeros(10,10))
 
   # 'Toad Oscillator'
   init[6, 4] = 1
@@ -40,7 +40,7 @@ end
 
 # Function to test Conway's turbine automota which repeats every ninth step
 function turbine_test()
-  init = int(zeros(20,20))
+  init = Array{Int}(zeros(20,20))
   init[4, 4:9] = 1
   init[5, 4:9] = 1
 
@@ -60,4 +60,3 @@ function turbine_test()
   end
 end
 end
-

@@ -2,8 +2,8 @@ using CellularAutomata
 
 #Rule 90 1-dim Cellular Automata run for 15 generations
 function rule90example()
-    #init=int(zeros(1000))
-    #init[int(1000/2)]=1
+    #init=Array{Int}(zeros(1000))
+    #init[Int(1000/2)]=1
     tic()
     ca = CellularAutomaton(90, 15)
     toc()
@@ -11,9 +11,9 @@ function rule90example()
     ca
 end
 
-#Turbine pattern from Conway's game of life 
+#Turbine pattern from Conway's game of life
 function turbine_example()
-    init = int(zeros(20,20))
+    init = Array{Int}(zeros(20,20))
     init[4, 4:9] = 1
     init[5, 4:9] = 1
 
@@ -29,4 +29,3 @@ function turbine_example()
     #game of life
     CA2d([3], [2,3], init, 5)
 end
-
