@@ -32,7 +32,7 @@ function sim_life(init::Array{Int,2},B, S)
             last = t; f = 0
         end
         M = CA2d(B, S, init, 2).cells
-        init = int(M[:, :, 2]) 
+        init = Array{Int}(M[:, :, 2])
         f += 1
         sleep(0.01)
     end
@@ -40,7 +40,7 @@ end
 
 
 #turbine pattern
-#init = int(zeros(20,20))
+#init = Array{Int}(zeros(20,20))
 #init[4, 4:9] = 1
 #init[5, 4:9] = 1
 
@@ -53,12 +53,12 @@ end
 #init[7:12, 4] = 1
 #init[7:12, 5] = 1
 
-init = int(zeros(600,600))
-init[250:350, 250:350] = int(rand(101,101))
-#init[295:305, 295:305] = int(rand(11,11))
+init = Array{Int}(zeros(600,600))
+init[250:350, 250:350] = Array{Int}(rand(101,101))
+#init[295:305, 295:305] = Array{Int}(rand(11,11))
 
 
-#init = int(rand(1000, 1000))
+#init = Array{Int}(rand(1000, 1000))
 
 #game of life
 sim_life(init,[3], [2,3])
@@ -80,4 +80,3 @@ sim_life(init,[3], [2,3])
 
 #34 life
 #sim_life(init,[3,4],[3,4])
-
