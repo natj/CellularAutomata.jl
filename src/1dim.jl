@@ -21,7 +21,7 @@ type CellularAutomaton
 
         if k == 2
             #Elementary CA
-            mp = reverse(Int8[k^i for i = 0:k])
+            mp = reverse(Int8[k^i for i = 0:2r])
         else
             #Totalistic CA
             mp = Array{Int8}(ones(k+1))
