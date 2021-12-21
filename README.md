@@ -218,6 +218,6 @@ Running Tests
 To run tests, execute the following command from the root folder of the repository:
 
 ```julia
-julia tests/run_tests.jl
+julia test/runtests.jl
 ```
 
