@@ -1,7 +1,7 @@
 #1-dim CAs
 
 #Elementary & totalistic CA with r-nearest neighbor and k states
-type CellularAutomaton
+mutable struct CellularAutomaton
 
     #user given values
     N::Int #code

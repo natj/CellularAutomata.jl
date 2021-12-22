@@ -2,7 +2,7 @@
 
 #Two dimensional Cellular Automaton
 #TODO: Change naming to be consistent
-type CA2d
+mutable struct CA2d
 
     #User given values
     k::Int #Number of states
