@@ -1,6 +1,6 @@
 module ConwayTest
 
-using Base.Test
+using Test #Base.Test was deprecated
 
 using CellularAutomata
 export blinker_test, turbine_test
@@ -41,17 +41,18 @@ end
 # Function to test Conway's turbine automota which repeats every ninth step
 function turbine_test()
   init = Array{Int}(zeros(20,20))
-  init[4, 4:9] = 1
-  init[5, 4:9] = 1
+  # Using `A[I...] = x` to implicitly broadcast `x` across many locations is deprecated. Replaced them with .=
+  init[4, 4:9] .= 1
+  init[5, 4:9] .= 1
 
-  init[4:9, 11] = 1
-  init[4:9, 12] = 1
+  init[4:9, 11] .= 1
+  init[4:9, 12] .= 1
 
-  init[11, 7:12] = 1
-  init[12, 7:12] = 1
+  init[11, 7:12] .= 1
+  init[12, 7:12] .= 1
 
-  init[7:12, 4] = 1
-  init[7:12, 5] = 1
+  init[7:12, 4] .= 1
+  init[7:12, 5] .= 1
 
   ca = CA2d([3], [2,3], init, 18)
 
